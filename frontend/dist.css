@@ -1,0 +1,131 @@
+*{
+    box-sizing:border-box
+}
+
+body{
+    font-family:-apple-system,monospace;
+    color:#454545;
+    margin:0 auto;
+}
+
+.text-value {
+    font-size:24px;fill:#fff;opacity:.9
+}
+
+.text-label {
+    fill: #767676;
+    font-size: 12px;
+}
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 8px;
+}
+    
+.div1 {
+    grid-column: span 6 / span 6;
+    grid-row: span 8 / span 8;
+}
+
+.div2 {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 7;
+}
+
+.div3 {
+    grid-row: span 5 / span 5;
+    grid-column-start: 7;
+    grid-row-start: 3;
+}
+
+.div4 {
+    grid-row: span 5 / span 5;
+    grid-column-start: 8;
+    grid-row-start: 3;
+}
+
+.div5 {
+    grid-row: span 5 / span 5;
+    grid-column-start: 9;
+    grid-row-start: 3;
+}
+
+
+.map-bg {
+    fill: #ffffff;
+}
+
+.map-brgys {
+    fill: #212830;
+}
+
+.map-svg {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.chart, .chart2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tb-councilor {
+    width: 100%;
+}
+
+.tb-councilor thead th {
+    font-size: 8px;
+    padding: 8px 16px 12px 16px;
+    text-align: right;
+}
+
+.tb-councilor thead tr {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.tb-councilor tbody tr {
+    line-height: 16px;
+    position: relative;
+    vertical-align: top;
+    transform: translate(0);
+    clip-path: inset(0);
+}
+
+.tb-councilor tbody tr::after {
+    background: var(--background);
+    position: absolute;
+    height: calc(100% + 1px);
+    top: 0;
+    left: 0;
+    width: var(--width);
+    content: "";
+    border-left: 8px solid var(--winnerPartyColor);
+    transition: width cubic-bezier(0.5, 0.01, 0.5, 1.25) 500ms 100ms;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.tb-councilor tbody td {
+    border-top: 1px solid #e6e6e6;
+    padding: 12px 0;
+}
+
+.tb-councilor tbody tr td:first-child {
+   padding-left: 12px;
+}
+
+.tb-councilor tbody tr td:first-child,
+.tb-councilor thead tr th:first-child {
+    text-align: left;
+ }
+
+.tb-councilor tbody tr td:last-child,
+.tb-councilor thead tr th:last-child {
+    text-align: right;
+ }
