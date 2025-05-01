@@ -107,15 +107,3 @@ function processData (data, position) {
         },
     ]
 }
-
-// setTimeout(() => {
-//     const data = [
-//       { label: 'Test 0 which should not render', value: 0 },
-//       { label: 'Group-1', value: 55 },
-//       { label: 'Group-2', value: 233 },
-//       { label: 'Test 0 AGAIN which should not render', value: 0 },
-//       { label: 'Group-3', value: 89 }
-//     ]
-//     mayorData.val = data;
-//     viceMayorData.val = data;
-//   }, 1000)

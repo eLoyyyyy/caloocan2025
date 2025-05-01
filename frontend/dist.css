@@ -17,40 +17,44 @@ body{
     font-size: 12px;
 }
 
+.div1 {
+    height: 100vh;
+}
+
 
 .parent {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     gap: 8px;
 }
     
 .div1 {
-    grid-column: span 6 / span 6;
-    grid-row: span 8 / span 8;
+    grid-column: span 4 / span 4;
+    grid-row: span 6 / span 6;
 }
 
 .div2 {
     grid-column: span 3 / span 3;
     grid-row: span 2 / span 2;
-    grid-column-start: 7;
+    grid-column-start: 5;
 }
 
 .div3 {
-    grid-row: span 5 / span 5;
-    grid-column-start: 7;
+    grid-row: span 4 / span 4;
+    grid-column-start: 5;
     grid-row-start: 3;
 }
 
 .div4 {
-    grid-row: span 5 / span 5;
-    grid-column-start: 8;
+    grid-row: span 4 / span 4;
+    grid-column-start: 6;
     grid-row-start: 3;
 }
 
 .div5 {
-    grid-row: span 5 / span 5;
-    grid-column-start: 9;
+    grid-row: span 4 / span 4;
+    grid-column-start: 7;
     grid-row-start: 3;
 }
 
@@ -128,4 +132,19 @@ body{
 .tb-councilor tbody tr td:last-child,
 .tb-councilor thead tr th:last-child {
     text-align: right;
+ }
+
+ .popover {
+    display: none;
+    background: #C8C8C8;
+    margin-left: 28px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    width:200px;
+    height:100px;
+ }
+
+ .map-brgys:hover .popover {
+    display:block;
  }
