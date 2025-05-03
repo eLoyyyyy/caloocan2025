@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Encoder | Caloocan 2025 Elections Quick Tracking System</title>
+    <link rel="stylesheet" href="stylesheets/encoder.css" />
+    <link rel="stylesheet" href="stylesheets/login.css" />
+  </head>
+  <body>
+    <%- include('../partials/header'); %>
+    <div class="encoderBody">
+      <div class="precinctsBody">
+        <h2>Precincts Assigned</h2>
+        <div class="precinctsList">
+          <% precincts.forEach(function(precinct) { %>
+          <span class="clusteredPrecinct"><%= precinct %></span>
+          <% }) %>
+        </div>
+      </div>
+      <div class="tallies">
+        <h3>Precinct 0005A, District 1</h3>
+        <div class="tallyRow">
+          <%- include('../partials/tally-card', { header: 'Mayor', candidates:
+          mayors }) %> <%- include('../partials/tally-card', { header:
+          'Vice-Mayor', candidates: viceMayors }) %>
+        </div>
+        <div class="tallyRow">
+          <%- include('../partials/tally-card', { header: 'Congressman',
+          candidates: congressmen }) %> <%- include('../partials/tally-card', {
+          header: 'Councilors', candidates: congressmen }) %>
+        </div>
+      </div>
+    </div>
+    <%- include('../partials/footer'); %>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Encoder | Caloocan 2025 Elections Quick Tracking System</title>
+    <link rel="stylesheet" href="stylesheets/encoder.css" />
+    <link rel="stylesheet" href="stylesheets/login.css" />
+  </head>
+  <body>
+    <form class="modal" action="/login" method="POST">
+      <h2>Encoder Login</h2>
+      <div class="loginFields">
+        <input
+          type="email"
+          name="email"
+          class="field"
+          value="jared@valdezfamily.dev"
+        />
+        <input type="password" class="field" name="password" value="password" />
+      </div>
+      <div class="actions">
+        <input type="submit" value="Login" />
+      </div>
+    </form>
+    <%- include('../partials/footer'); %>
+  </body>
+</html>

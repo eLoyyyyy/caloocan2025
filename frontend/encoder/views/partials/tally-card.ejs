@@ -1,0 +1,10 @@
+<div class="tallyCard">
+  <h4><%= header %></h4>
+  <div class="talliesbody">
+    <% candidates.forEach(function(mayor) { %> <%-
+    include('../partials/candidate', { user: mayor }) %> <% }); %>
+  </div>
+  <input type="submit" class="submitTally" value="Submit Tally" />
+
+  <input type="submit" class="submitTally" value="Request to Revise Tally" />
+</div>
