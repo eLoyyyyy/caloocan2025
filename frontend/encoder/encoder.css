@@ -1,0 +1,108 @@
+body {
+  font-family: sans-serif;
+  color: #333333;
+  background-color: cornflowerblue;
+}
+
+.header {
+  text-align: center;
+  margin-top: 32px;
+}
+.subheader {
+  text-align: center;
+}
+
+.encoderBody {
+  display: flex;
+  background-color: cornflowerblue;
+}
+
+.precinctsBody {
+  display: block;
+  padding: 12px;
+  border: 1px solid blu;
+  border-radius: 16px;
+  margin: 16px;
+  background-color: #ffffff44;
+}
+
+.precinctsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.clusteredPrecinct {
+  padding: 12px;
+}
+
+.tallies {
+  display: block;
+  padding: 8px;
+  border-radius: 16px;
+  margin: 16px;
+  background-color: #ffffff44;
+}
+
+.tallyRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.tallyCard {
+  display: block;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #ffffff44;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  box-shadow: 3px 3px 5px gray;
+}
+
+.talliesbody {
+  display: grid;
+}
+
+.candidate {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.party {
+  width: 60px;
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+.aksyon {
+  font-weight: 600;
+  color: #0000aa;
+}
+
+.nacionalista {
+  color: orangered;
+}
+
+.makabayan {
+  color: maroon;
+}
+
+.submitTally {
+  margin: 0 auto;
+  display: block;
+  margin-top: 12px;
+}
+
+.candidateName {
+  width: 200px;
+  margin-right: 4px;
+}
+
+.candidateParty {
+  display: flex;
+  flex-direction: column;
+}
+
+.comelecDeclaration {
+  text-align: center;
+  font-size: 10px;
+}
