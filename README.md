@@ -14,7 +14,7 @@ This source code is written, published, and maintained by Mr. and Mrs. Zyb Jared
 
 # Apply as Contributor
 
-Contributors to this quick count system will be subject to background checks by the **MAINTAINERS** and the **CLIENT** before becoming approved.
+Contributors to this quick count system will be subject to background checks by the **MAINTAINERS** and the **CLIENT** before being approved.
 
 Anyone is free to make a fork of this repository for their own academic, research, non-partisan, or partisan use unless specified otherwise by the **CLIENT**.
 
