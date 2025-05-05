@@ -16,4 +16,4 @@ The source code written, published, and maintained by Mr. and Mrs. Zyb Jared Val
 
 Contributors to this quick count system will be subject to background checks by the **MAINTAINERS** and the **CLIENT** before becoming approved. Anyone is free to make a fork of this repository for their own academic, non-partisan, or partisan use unless specified otherwise by the **CLIENT**.
 
-In order to apply as contributor, make a pull requests modifying the source code to the repository (not your own fork of the repo). The **MAINTAINERS** shall be in touch.
+In order to apply as contributor, make a pull requests modifying the source code to THIS repository (not to your own fork of the repo). The **MAINTAINERS** shall be in touch.
