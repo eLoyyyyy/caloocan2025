@@ -18,4 +18,4 @@ Contributors to this quick count system will be subject to background checks by 
 
 Anyone is free to make a fork of this repository for their own academic, research, non-partisan, or partisan use unless specified otherwise by the **CLIENT**.
 
-In order to apply as contributor, make a pull requests modifying the source code to THIS repository (not to your own fork of the repo). The **MAINTAINERS** shall be in touch.
+In order to apply as contributor, make a pull request(s) modifying the source code to THIS repository (not to your own fork of the repo). The **MAINTAINERS** shall be in touch.
