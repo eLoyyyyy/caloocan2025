@@ -4,7 +4,7 @@ This is an independent election polling system paid by and for the use of Calooc
 
 Production data comes from COMELEC poll watchers of the **CLIENT**, during the 12 May 2025 Mayoral Elections for Caloocan City.
 
-The source code written, published, and maintained by Mr. and Mrs. Zyb Jared Valdez: (github.com/eloyyy, github.com/monicavaldez), hereafter named as **MAINTAINERS**.
+The source code written, published, and maintained by Mr. and Mrs. Zyb Jared Valdez: ([Mr. Valdez](github.com/eloyyyyy), [Mrs. Valdez](github.com/monicavaldez)), hereafter named as **MAINTAINERS**.
 
 # Setup and Running on local environment
 
