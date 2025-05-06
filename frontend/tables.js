@@ -54,8 +54,9 @@ const Councilors = (top6Councilors) => {
     )
   );
 };
-//https://caloocan2025.valdezfamily.dev/total'
-fetch("http://localhost:8055/total").then(async (response) => {
+//https://caloocan2025.valdezfamily.dev/total
+//http://localhost:8055/total
+fetch("https://caloocan2025.valdezfamily.dev/total").then(async (response) => {
   if (!response.ok) {
     console.error(`Response status: ${response.status}`);
   }
