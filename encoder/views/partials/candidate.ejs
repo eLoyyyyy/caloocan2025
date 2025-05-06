@@ -1,5 +1,5 @@
 <div
-  class="candidate"
+  class="input-group mb-3 candidate"
   style="
     --color-party: <%= user.color %>;
     <% if (user.party === 'AKSYON') { %>
@@ -7,10 +7,16 @@
     <% } %>
   "
 >
-  <div class="candidateParty">
+  <div class="input-group-text candidateParty">
     <span class="candidateName"><%= user.name %></span>
     <span class="party">(<%= user.party %>)</span>
   </div>
 
-  <input type="text" />
+  <input
+    type="number"
+    min="0"
+    step="1"
+    oninput="validity.valid||(value='');"
+    class="form-control"
+  />
 </div>

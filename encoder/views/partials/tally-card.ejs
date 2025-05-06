@@ -1,7 +1,7 @@
 <div class="card tallyCard">
   <div class="card-body">
     <h4 class="card-title"><%= header %></h4>
-    <div class="talliesbody">
+    <div>
       <% candidates.forEach(function(mayor) { %> <%-
       include('../partials/candidate', { user: mayor }) %> <% }); %>
     </div>
