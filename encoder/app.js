@@ -8,6 +8,7 @@ import { dirname } from "node:path";
 
 import indexRouter from "./routes/index.js";
 import loginRouter from "./routes/login.js";
+import submitVotesRouter from "./routes/submit.js";
 
 const app = express();
 
@@ -23,8 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
 app.use("/login", loginRouter);
+app.use('/submit-votes', submitVotesRouter)
+app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -32,7 +34,7 @@ app.use(function (req, res, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res, next) {1
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};

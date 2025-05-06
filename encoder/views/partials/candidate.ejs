@@ -13,7 +13,12 @@
   </div>
 
   <input
+    name="<%= user.votes <= 0 ? '' : user.id %>"
+    value="<%= user.votes %>"
     type="number"
+    <% if (user.votes > 0) { %>
+    disabled
+    <% } %>
     min="0"
     step="1"
     oninput="validity.valid||(value='');"

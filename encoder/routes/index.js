@@ -4,6 +4,18 @@ import { wrapper } from "axios-cookiejar-support";
 import { CookieJar } from "tough-cookie";
 const router = express.Router();
 
+function filter(data, position) {
+  return data
+    .filter(d => d.candidate_id.position.position === position)
+    .map(d => ({
+      id: d.id,
+      name: d.candidate_id.surname,
+      party: d.candidate_id.party_id.party_acronym,
+      color: d.candidate_id.party_id.party_color,
+      votes: d.number_of_votes
+    }))
+}
+
 /* GET home page. */
 router.get(
   "/",
@@ -41,113 +53,24 @@ router.get(
     const candidateData = await client.get(`/items/PRECINCT_147A`, {
       params: {
         fields: [
-          "candidate_id.id",
+          "id",
           "candidate_id.surname",
           "candidate_id.first_name",
           "candidate_id.position.position",
           "candidate_id.party_id.party_acronym",
           "candidate_id.party_id.party_color",
+          "number_of_votes"
         ],
       },
     });
 
-    console.dir(candidateData.data, { depth: null });
-
     res.render("sites/index", {
       user: userData.data.data,
       precincts: precincts,
-      mayors: [
-        {
-          id: "1",
-          name: "CAÑETE, Richard",
-          party: "IND",
-          color: "#000000",
-        },
-        {
-          id: "2",
-          name: "MALAPITAN, Along",
-          party: "NP",
-          color: "orangered",
-        },
-        {
-          id: "3",
-          name: "TRILLANES, Antonio IV",
-          party: "AKSYON",
-          color: "#0000aa",
-        },
-        {
-          id: "4",
-          name: "MALUNES, Ronnie",
-          party: "IND",
-          color: "#000000",
-        },
-        {
-          id: "5",
-          name: "VILLANUEVA, Danny",
-          party: "IND",
-          color: "#000000",
-        },
-      ],
-      viceMayors: [
-        {
-          id: "5",
-          name: "VILLANUEVA, Danny",
-          party: "IND",
-          color: "#000000",
-        },
-        {
-          id: "2",
-          name: "MALAPITAN, Along",
-          party: "NP",
-          color: "orangered",
-        },
-        {
-          id: "3",
-          name: "TRILLANES, Antonio IV",
-          party: "AKSYON",
-          color: "#0000aa",
-        },
-      ],
-      congressmen: [
-        {
-          id: "5",
-          name: "VILLANUEVA, Danny",
-          party: "IND",
-          color: "#000000",
-        },
-        {
-          id: "2",
-          name: "MALAPITAN, Along",
-          party: "NP",
-          color: "orangered",
-        },
-        {
-          id: "3",
-          name: "TRILLANES, Antonio IV",
-          party: "AKSYON",
-          color: "#0000aa",
-        },
-      ],
-      councilors: [
-        {
-          id: "5",
-          name: "VILLANUEVA, Danny",
-          party: "IND",
-          color: "#000000",
-        },
-        {
-          id: "2",
-          name: "MALAPITAN, Along",
-          party: "NP",
-          color: "orangered",
-        },
-        {
-          id: "3",
-          name: "TRILLANES, Antonio IV",
-          party: "AKSYON",
-          color: "#0000aa",
-        },
-      ],
+      mayors: filter(candidateData.data.data, 'Mayor'),
+      viceMayors: filter(candidateData.data.data, 'Vice Mayor'),
+      councilors: filter(candidateData.data.data, 'Councilor'),
+      congressmen: filter(candidateData.data.data, 'Congressman/Congresswoman')
     });
   }
 );
