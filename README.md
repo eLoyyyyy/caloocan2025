@@ -10,7 +10,10 @@ This source code is written, published, and maintained by Mr. and Mrs. Zyb Jared
 
 1. Clone the repository
 2. Update `NodeJS` version in your local computer.
-3. to run the dashboard, simply write `npm run dev`
+3. Go to `caloocan2025/encoder`
+4. `npm ci` (You only need to do this just once)
+5. to run the dashboard, simply command `npm run dev`
+6. go to `localhost:3000`
 
 # Apply as Contributor
 

@@ -6,11 +6,14 @@ h2 {
   text-align: center;
 }
 
-.modal {
-  width: 600px;
+.login-form-modal {
+  width: 800px;
   background-color: cornflowerblue;
+  justify-self: center;
   padding: 20px;
   align-self: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
   border-radius: 24px;
   box-shadow: 3px 3px 5px gray;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -35,5 +38,5 @@ h2 {
 
 .comelecDeclaration {
   text-align: center;
-  font-size: 10px;
+  font-size: small;
 }
