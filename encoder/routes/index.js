@@ -38,9 +38,20 @@ router.get(
 
     console.log(userData.data);
 
-    const candidateData = await client.get(`/items/CANDIDATES_CALOOCAN`);
+    const candidateData = await client.get(`/items/PRECINCT_147A`, {
+      params: {
+        fields: [
+          "candidate_id.id",
+          "candidate_id.surname",
+          "candidate_id.first_name",
+          "candidate_id.position.position",
+          "candidate_id.party_id.party_acronym",
+          "candidate_id.party_id.party_color",
+        ],
+      },
+    });
 
-    console.log(candidateData.data);
+    console.dir(candidateData.data, { depth: null });
 
     res.render("sites/index", {
       user: userData.data.data,
