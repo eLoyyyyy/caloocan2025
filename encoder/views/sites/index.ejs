@@ -25,16 +25,26 @@
         </div>
       </div>
       <div class="container tallies">
-        <h3>Precinct 0005A, District 1</h3>
+        <h3 class="text-center tallyHeader">Precinct 0005A, District 1</h3>
         <div class="row">
-          <%- include('../partials/tally-card', { header: 'Mayor', candidates:
-          mayors }) %> <%- include('../partials/tally-card', { header:
-          'Vice-Mayor', candidates: viceMayors }) %>
+          <div class="col">
+            <%- include('../partials/tally-card', { header: 'Mayor', candidates:
+            mayors }) %>
+          </div>
+          <div class="col">
+            <%- include('../partials/tally-card', { header: 'Vice-Mayor',
+            candidates: viceMayors }) %>
+          </div>
         </div>
-        <div class="tallyRow">
-          <%- include('../partials/tally-card', { header: 'Congressman',
-          candidates: congressmen }) %> <%- include('../partials/tally-card', {
-          header: 'Councilors', candidates: congressmen }) %>
+        <div class="row">
+          <div class="col">
+            <%- include('../partials/tally-card', { header: 'Congressman',
+            candidates: congressmen }) %>
+          </div>
+          <div class="col">
+            <%- include('../partials/tally-card', { header: 'Councilors',
+            candidates: congressmen }) %>
+          </div>
         </div>
       </div>
     </div>

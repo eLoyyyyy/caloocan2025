@@ -43,6 +43,11 @@ body {
   background-color: #ffffff44;
 }
 
+.tallyHeader {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .tallyRow {
   display: flex;
   flex-direction: row;
