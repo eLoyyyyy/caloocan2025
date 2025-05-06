@@ -1,13 +1,13 @@
-<div
-  class="input-group mb-3 candidate"
-  style="
-    --color-party: <%= user.color %>;
-    <% if (user.party === 'AKSYON') { %>
-      --font-weight: 600;
-    <% } %>
-  "
->
-  <div class="input-group-text candidateParty">
+<div class="input-group mb-3 candidate">
+  <div
+    class="input-group-text candidateParty"
+    style="
+  --color-party: <%= user.color %>;
+  <% if (user.party === 'AKSYON') { %>
+    --font-weight: 600;
+  <% } %>
+"
+  >
     <span class="candidateName"><%= user.name %></span>
     <span class="party">(<%= user.party %>)</span>
   </div>
