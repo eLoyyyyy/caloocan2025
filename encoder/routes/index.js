@@ -40,15 +40,18 @@ router.get(
 
     const {
       data: { precincts },
-    } = await client.get(`/total/precincts`);
+    } = await client.get(`/total/precincts`)
+    .catch(error => {
+      res.redirect('/login')
+    });
 
     const userData = await client.get(`/users/me`, {
       params: {
         "fields[]": "first_name",
       },
+    }).catch(error => {
+      res.redirect('/login')
     });
-
-    console.log(userData.data);
 
     const candidateData = await client.get(`/items/PRECINCT_147A`, {
       params: {
@@ -62,6 +65,8 @@ router.get(
           "number_of_votes"
         ],
       },
+    }).catch(error => {
+      res.redirect('/login')
     });
 
     res.render("sites/index", {

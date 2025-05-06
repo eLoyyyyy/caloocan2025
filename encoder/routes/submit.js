@@ -31,7 +31,10 @@ router.post('/',
 
       console.log(data);
   
-      const response = await client.patch('/items/PRECINCT_147A', data);
+      const response = await client.patch('/items/PRECINCT_147A', data)
+      .catch(error => {
+        res.redirect('/login')
+      });
       console.log({data: response.data});
       res.redirect(303, '/');
     }
