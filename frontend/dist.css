@@ -65,6 +65,8 @@ body{
 
 .map-brgys {
     fill: #212830;
+    stroke: white;
+    stroke-width: 0.3;
 }
 
 .map-svg {
