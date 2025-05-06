@@ -63,16 +63,48 @@ fetch("http://localhost:8055/total").then(async (response) => {
   const json = await response.json();
   mayorData.val = processData(json, "Mayor");
   viceMayorData.val = processData(json, "Vice Mayor");
+  congressman1.val = processData(json, "Congressman/Congresswoman");
+  congressman2.val = processData(json, "Congressman/Congresswoman");
+  congressman3.val = processData(json, "Congressman/Congresswoman");
 
   const d1Councilors = getTop6CouncilorPerDistrict(json, 1, "Councilor");
   const d2Councilors = getTop6CouncilorPerDistrict(json, 2, "Councilor");
   const d3Councilors = getTop6CouncilorPerDistrict(json, 3, "Councilor");
   console.log(d1Councilors);
 
+  const d1Congressman = getCongressmenPerDistrict(
+    json,
+    1,
+    "Congressman/Congresswoman"
+  );
+  const d2Congressman = getCongressmenPerDistrict(
+    json,
+    2,
+    "Congressman/Congresswoman"
+  );
+  const d3Congressman = getCongressmenPerDistrict(
+    json,
+    3,
+    "Congressman/Congresswoman"
+  );
+
   van.add(document.getElementById("councilorD1"), Councilors(d1Councilors));
   van.add(document.getElementById("councilorD2"), Councilors(d2Councilors));
   van.add(document.getElementById("councilorD3"), Councilors(d3Councilors));
+
+  van.add(document.getElementById("congressman1"), Councilors(d1Congressman));
+  van.add(document.getElementById("congressman2"), Councilors(d2Congressman));
+  van.add(document.getElementById("congressman3"), Councilors(d3Congressman));
 });
+
+function getCongressmenPerDistrict(data, district, position) {
+  const toSort = data;
+  return toSort
+    .filter((d) => d.district === district && d.position === position)
+    .sort((a, b) => a.total_votes > b.total_votes)
+    .reverse()
+    .slice(0, 2);
+}
 
 function getTop6CouncilorPerDistrict(data, district, position) {
   const toSort = data;
