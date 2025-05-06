@@ -32,7 +32,12 @@ document.getElementById("caloocan-map").addEventListener("load", function () {
   });
 });
 
-console.log("van");
+const colorMap = van.state([
+  {
+    psgc: "1380100139",
+    color: "#377EB8",
+  },
+]);
 van.add(document.getElementById("asdasd"), Popover());
 
 const popover = document.querySelectorAll(".popover")[0];
