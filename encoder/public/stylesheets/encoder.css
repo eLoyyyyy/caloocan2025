@@ -88,9 +88,8 @@ body {
 }
 
 .submitTally {
-  margin: 0 auto;
-  display: block;
-  margin-top: 12px;
+  margin-top: 20px;
+  float: right;
 }
 
 .candidateName {

@@ -4,7 +4,9 @@
     <% candidates.forEach(function(mayor) { %> <%-
     include('../partials/candidate', { user: mayor }) %> <% }); %>
   </div>
-  <input type="submit" class="submitTally" value="Submit Tally" />
-
-  <input type="submit" class="submitTally" value="Request to Revise Tally" />
+  <input
+    type="submit"
+    class="submitTally btn btn-primary"
+    value="Submit Tally"
+  />
 </div>

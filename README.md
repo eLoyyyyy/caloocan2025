@@ -9,11 +9,13 @@ This source code is written, published, and maintained by Mr. and Mrs. Zyb Jared
 # Setup and Running on local environment
 
 1. Clone the repository
-2. Update `NodeJS` version in your local computer.
-3. Go to `caloocan2025/encoder`
-4. `npm ci` (You only need to do this just once)
-5. to run the dashboard, simply command `npm run dev`
-6. go to `localhost:3000`
+2. go to the project root directory (`folder/to/caloocan2025`)
+3. run backend by typing `npx directus start`
+4. Run command `echo "API_HOST=http://localhost:8055" >> .env`
+5. Go to `caloocan2025/encoder`
+6. `npm ci` (You only need to do this just once)
+7. to run the front-end, simply command `npm run dev`
+8. go to `localhost:3000` for front-end
 
 # Apply as Contributor
 
