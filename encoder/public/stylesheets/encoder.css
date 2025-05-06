@@ -37,7 +37,6 @@ body {
 }
 
 .tallies {
-  display: block;
   padding: 8px;
   border-radius: 16px;
   margin: 16px;
@@ -54,8 +53,7 @@ body {
   padding: 16px;
   border-radius: 16px;
   background-color: #ffffff44;
-  margin-right: 8px;
-  margin-bottom: 8px;
+  margin: 16px;
   box-shadow: 3px 3px 5px gray;
 }
 
@@ -101,6 +99,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--color-party, #000000);
+  font-weight: var(--font-weight);
 }
 
 .comelecDeclaration {

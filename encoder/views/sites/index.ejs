@@ -15,15 +15,18 @@
     <div class="encoderBody">
       <div class="precinctsBody">
         <h2>Precincts Assigned</h2>
-        <div class="precinctsList">
+        <div class="precinctsList list-group">
           <% precincts.forEach(function(precinct) { %>
-          <a class="clusteredPrecinct"><%= precinct %></a>
+          <button class="clusteredPrecinct list-group-item">
+            <%= precinct %>
+          </button>
+
           <% }) %>
         </div>
       </div>
-      <div class="tallies">
+      <div class="container tallies">
         <h3>Precinct 0005A, District 1</h3>
-        <div class="tallyRow">
+        <div class="row">
           <%- include('../partials/tally-card', { header: 'Mayor', candidates:
           mayors }) %> <%- include('../partials/tally-card', { header:
           'Vice-Mayor', candidates: viceMayors }) %>

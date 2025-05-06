@@ -1,12 +1,14 @@
-<div class="tallyCard">
-  <h4><%= header %></h4>
-  <div class="talliesbody">
-    <% candidates.forEach(function(mayor) { %> <%-
-    include('../partials/candidate', { user: mayor }) %> <% }); %>
+<div class="card tallyCard">
+  <div class="card-body">
+    <h4 class="card-title"><%= header %></h4>
+    <div class="talliesbody">
+      <% candidates.forEach(function(mayor) { %> <%-
+      include('../partials/candidate', { user: mayor }) %> <% }); %>
+    </div>
+    <input
+      type="submit"
+      class="submitTally btn btn-primary"
+      value="Submit Tally"
+    />
   </div>
-  <input
-    type="submit"
-    class="submitTally btn btn-primary"
-    value="Submit Tally"
-  />
 </div>

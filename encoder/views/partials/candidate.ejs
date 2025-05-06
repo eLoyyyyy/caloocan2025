@@ -1,4 +1,12 @@
-<div class="candidate" style="--color-party: <%= user.color %>">
+<div
+  class="candidate"
+  style="
+    --color-party: <%= user.color %>;
+    <% if (user.party === 'AKSYON') { %>
+      --font-weight: 600;
+    <% } %>
+  "
+>
   <div class="candidateParty">
     <span class="candidateName"><%= user.name %></span>
     <span class="party">(<%= user.party %>)</span>
