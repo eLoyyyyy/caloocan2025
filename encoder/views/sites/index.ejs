@@ -34,24 +34,26 @@
           </ul>
         </div>
 
-        <div class="row">
-          <div class="col">
-            <%- include('../partials/tally-card', { header: 'Mayor', candidates:
-            mayors }) %>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <%- include('../partials/tally-card', { header: 'Mayor',
+              candidates: mayors }) %>
+            </div>
+            <div class="col">
+              <%- include('../partials/tally-card', { header: 'Vice-Mayor',
+              candidates: viceMayors }) %>
+            </div>
           </div>
-          <div class="col">
-            <%- include('../partials/tally-card', { header: 'Vice-Mayor',
-            candidates: viceMayors }) %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <%- include('../partials/tally-card', { header: 'Congressman',
-            candidates: congressmen }) %>
-          </div>
-          <div class="col">
-            <%- include('../partials/tally-card', { header: 'Councilors',
-            candidates: congressmen }) %>
+          <div class="row">
+            <div class="col">
+              <%- include('../partials/tally-card', { header: 'Congressman',
+              candidates: congressmen }) %>
+            </div>
+            <div class="col">
+              <%- include('../partials/tally-card', { header: 'Councilors',
+              candidates: congressmen }) %>
+            </div>
           </div>
         </div>
       </div>
