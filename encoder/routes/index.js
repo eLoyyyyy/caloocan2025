@@ -2,6 +2,7 @@ import express from "express";
 import axios from "axios";
 import { wrapper } from "axios-cookiejar-support";
 import { CookieJar } from "tough-cookie";
+import { COOKIE_NAME } from '../constant.js'
 const router = express.Router();
 
 function filter(data, position) {
@@ -20,7 +21,7 @@ function filter(data, position) {
 router.get(
   "/",
   function (req, res, next) {
-    const authCookie = req.cookies["directus_session_token"];
+    const authCookie = req.cookies[COOKIE_NAME];
 
     if (!authCookie) {
       return res.redirect("/login");
@@ -29,7 +30,7 @@ router.get(
     next();
   },
   async (req, res, next) => {
-    const cookie = req.cookies["directus_session_token"];
+    const cookie = req.cookies[COOKIE_NAME];
 
     const client = axios.create({
       baseURL: process.env.API_HOST,

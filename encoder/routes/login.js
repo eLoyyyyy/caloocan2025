@@ -2,6 +2,7 @@ import express from "express";
 import axios from "axios";
 import { wrapper } from "axios-cookiejar-support";
 import { CookieJar } from "tough-cookie";
+import { COOKIE_NAME } from '../constant.js'
 const router = express.Router();
 
 /* GET users listing. */
@@ -18,7 +19,7 @@ router.post("/", async (req, res) => {
     password: req.body.password,
   });
 
-  res.cookie("directus_session_token", data.data.access_token, {
+  res.cookie(COOKIE_NAME, data.data.access_token, {
     maxAge: data.data.expires,
     httpOnly: true,
   });
