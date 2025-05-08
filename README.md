@@ -13,6 +13,12 @@ This source code is written, published, and maintained by Mr. and Mrs. Zyb Jared
 3. go to the project root directory (`folder/to/caloocan2025`)
 4. run frontend, encoder, and backend by typing command `pm2 start`
 
+if you are using `asdf`, make sure `env PATH="$(asdf where nodejs)/bin:$PATH" pm2 start`
+
+Map: :8080
+Admin: :8055
+Encoder: :3000
+
 # Deploying
 
 Deployment Instructions are accessible to **CLIENT** and **MAINTAINERS** only.
