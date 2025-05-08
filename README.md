@@ -11,13 +11,7 @@ This source code is written, published, and maintained by Mr. and Mrs. Zyb Jared
 1. Clone the repository
 2. request `data.db` from **MAINTAINERS**.
 3. go to the project root directory (`folder/to/caloocan2025`)
-4. run backend by typing `npx directus start`
-5. Run command `echo "API_HOST=http://localhost:8055" >> .env`
-6. Go to `caloocan2025/encoder`
-7. `npm ci` (You only need to do this just once)
-8. to run the front-end, simply command `npm run dev`
-9. go to `localhost:3000` for front-end
-10. To see map dashboard, on VSCode, Click "Go Live"
+4. run frontend, encoder, and backend by typing command `pm2 start`
 
 # Deploying
 
