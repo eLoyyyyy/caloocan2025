@@ -25,6 +25,7 @@ module.exports = {
         {
             name   : "caloocan2025-dashboard",
             script: "npx",
+            cwd: "./frontend",
             args: "http-server -o frontend"
         },
     ]
