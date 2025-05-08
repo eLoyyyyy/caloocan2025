@@ -143,3 +143,12 @@ body {
 .map-brgys:hover .popover {
   display: block;
 }
+
+.declaration {
+  margin-top: 20px;
+}
+
+.comelecDeclaration {
+  text-align: center;
+  font-size: small;
+}
