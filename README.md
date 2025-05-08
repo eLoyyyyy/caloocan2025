@@ -1,8 +1,8 @@
 # #TeamTrillanes Quick Counting System
 
-This is an independent election polling system paid by and for the use of Caloocan Mayoral candidate **Antonio "Sonny" F. Trillanes IV**, Sct. Ojeda St. Quezon City, hereafter named as **CLIENT**.
+This is an independent election polling system paid by and for the use of Caloocan Mayoral candidate **Antonio "Sonny" F. Trillanes IV**, hereafter named as **CLIENT**.
 
-Production data comes from COMELEC poll watchers of the **CLIENT**, during the 12 May 2025 Mayoral Elections for Caloocan City.
+Production data comes from COMELEC poll watchers of the **CLIENT**, during the 12 May 2025 Mayoral Elections for Caloocan City. Their entries are subject to COMELEC approval.
 
 This source code is written, published, and maintained by Mr. and Mrs. Zyb Jared Valdez: ([Mr. Valdez](github.com/eloyyyyy), [Mrs. Valdez](github.com/monicavaldez)), hereafter named as **MAINTAINERS**.
 
