@@ -4,7 +4,7 @@ const Popover = () => {
   return div(
     { class: "popover" },
     tbody(
-      [{ barangay_name: "139", registered_voters: 4556, party_color: "123" }].map(
+      [{ barangay_name: "139", registered_voters: 4556, party_color: "123" }, { barangay_name: "140", registered_voters: 12341, party_color: "123" }].map(
         (c) => tr(
           {
             style: `/*--background: ${shade(
