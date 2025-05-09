@@ -4,18 +4,18 @@ const Popover = () => {
   return div(
     { class: "popover" },
     tbody(
-      [{ total_votes: 123, full_name: "asdasdas", party_color: "123" }].map(
-        (c) =>
-          tr(
-            {
-              style: `/*--background: ${shade(
-                c.party_color,
-                0.731
-              )};--width: 25%;*/--winnerPartyColor: ${c.party_color};`,
-            },
-            td({ title: c.total_votes }, c.full_name),
-            td(c.total_votes)
-          )
+      [{ barangay_name: "139", registered_voters: 4556, party_color: "123" }].map(
+        (c) => tr(
+          {
+            style: `/*--background: ${shade(
+              c.party_color,
+              0.731
+            )};--width: 25%;*/--winnerPartyColor: ${c.party_color};`,
+          },
+          //td({ title: c.total_votes }, c.full_name),
+          //td(c.total_votes)
+          th({title: "Barangay" + c.barangay_name}, "Barangay " + c.barangay_name),
+        )
       )
     )
   );
