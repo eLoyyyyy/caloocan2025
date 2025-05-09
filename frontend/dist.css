@@ -151,6 +151,19 @@ body {
   min-width: 200px;
 }
 
+.popupH6 {
+  margin-bottom: 0;
+}
+
+.popupSubtext {
+  font-size: small;
+  color: #808080;
+}
+
+.popupline {
+  padding: 0;
+}
+
 .turnoutRow {
   padding-right: 16px;
 }

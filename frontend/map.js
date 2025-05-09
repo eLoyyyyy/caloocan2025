@@ -15,9 +15,9 @@ const Popover = () => {
   return div(
     { class: "popover" },
     div(
-      h5("Barangay " + barangayStats.barangay_name),
-      p("Registered voters: " + barangayStats.registered_voters),
-      hr(),
+      h5({class: "popupH6"},"Barangay " + barangayStats.barangay_name),
+      p({class: "popupSubtext"}, "Registered voters: " + barangayStats.registered_voters),
+      hr({class: "popupline"}),
       h6("Turnout:"),
       div(
         tbody(
