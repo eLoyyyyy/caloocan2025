@@ -163,3 +163,10 @@ body {
   text-align: center;
   font-size: small;
 }
+
+
+.mekkik {
+  width: 95%;
+  margin: 20px;
+  border-radius: 30px;
+}
