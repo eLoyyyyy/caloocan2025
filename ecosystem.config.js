@@ -15,11 +15,12 @@ module.exports = {
         {
             name   : "caloocan2025-encoder",
             script: "npm",
-            args: "start start",
+            args: "run dev",
             cwd: './encoder',
             env: {
                 NODE_ENV: "production",
-                API_HOST: "http://localhost:8055"
+                API_HOST: "http://localhost:8055",
+                PATH: "$(asdf where nodejs)/bin:$PATH"
             }
         },
         {

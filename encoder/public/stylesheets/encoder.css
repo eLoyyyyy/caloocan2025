@@ -13,8 +13,14 @@ body {
   text-align: center;
 }
 
+.noPrecinct{
+  justify-items: center;
+  padding: 30px;
+}
+
 .encoderBody {
   display: flex;
+  flex-direction: column;
   background-color: cornflowerblue;
   justify-content: center;
 }
