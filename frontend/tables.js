@@ -125,7 +125,7 @@ function processData(data, position) {
 
   return [
     {
-      label: first.full_name,
+      label: `${first.surname}, ${first.first_name}`,
       value: first.total_votes,
       color: first.party_color,
     },
@@ -137,7 +137,7 @@ function processData(data, position) {
       }, 0),
     },
     {
-      label: second.full_name,
+      label: `${second.surname}, ${second.first_name}`,
       value: second.total_votes,
       color: second.party_color,
     },
