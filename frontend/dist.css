@@ -25,6 +25,15 @@ body {
 .electoralMap {
 }
 
+.aksyon {
+  font-weight: 600;
+  color: #0000aa;
+}
+
+.nacionalista {
+  color: orangered;
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(7, 1fr);

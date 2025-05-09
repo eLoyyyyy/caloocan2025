@@ -21,11 +21,11 @@ const Popover = () => {
       h6("Turnout:"),
       div(
         tbody(
-          tr(
+          tr( {class: "aksyon"},
             td({class: "turnoutRow"}, "Trillanes"),
             barangayStats.turnout.trillanes
           ),
-          tr(
+          tr( {class: "nacionalista"},
             td({class: "turnoutRow"}, "Malapitan"),
             barangayStats.turnout.malapitan
           ),
