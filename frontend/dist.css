@@ -132,6 +132,10 @@ body {
   text-align: left;
 }
 
+.tb-councilor tbody tr:first-child td:first-child {
+  font-weight: 600;
+}
+
 .tb-councilor tbody tr td:last-child,
 .tb-councilor thead tr th:last-child {
   text-align: right;
