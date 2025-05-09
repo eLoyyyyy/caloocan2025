@@ -1,4 +1,4 @@
-const { table, thead, tbody, tr, td, th } = van.tags;
+const { table, thead, tbody, tr, td, th, p} = van.tags;
 
 function hex2(c) {
   c = Math.round(c);
@@ -56,6 +56,7 @@ const Councilors = (top6Councilors) => {
 };
 
 fetch("http://localhost:8055/total").then(async (response) => {
+  timeCheck()
   if (!response.ok) {
     console.error(`Response status: ${response.status}`);
   }
@@ -141,4 +142,10 @@ function processData(data, position) {
       color: second.party_color,
     },
   ];
+}
+
+
+function timeCheck() {
+  const dateNow = new Date();
+  van.add(document.getElementById("pollingTime"), p({class: "comelecDeclaration"}, "Poll as of " + dateNow.toLocaleString()))
 }
