@@ -72,7 +72,7 @@ router.get(
 
     res.render("sites/index", {
       user: userData.data.data,
-      precincts: [],
+      precincts: precincts,
       mayors: filter(candidateData.data.data, 'Mayor'),
       viceMayors: filter(candidateData.data.data, 'Vice Mayor'),
       councilors: filter(candidateData.data.data, 'Councilor'),
