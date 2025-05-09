@@ -1,25 +1,68 @@
-const { div } = van.tags;
+const { div, p, h5, h6, hr} = van.tags;
 
 const Popover = () => {
+  const barangayStats = {
+    barangay_name: "139",
+    registered_voters: 4578,
+    winning_party_color: "#377EB8",
+    turnout: {
+      trillanes: 3562,
+      malapitan: 1873,
+      independents: 589,
+      abstained: 236
+    }
+  };
   return div(
     { class: "popover" },
-    tbody(
-      [{ barangay_name: "139", registered_voters: 4556, party_color: "123" }, { barangay_name: "140", registered_voters: 12341, party_color: "123" }].map(
-        (c) => tr(
-          {
-            style: `/*--background: ${shade(
-              c.party_color,
-              0.731
-            )};--width: 25%;*/--winnerPartyColor: ${c.party_color};`,
-          },
-          //td({ title: c.total_votes }, c.full_name),
-          //td(c.total_votes)
-          th({title: "Barangay" + c.barangay_name}, "Barangay " + c.barangay_name),
+    div(
+      h5("Barangay " + barangayStats.barangay_name),
+      p("Registered voters: " + barangayStats.registered_voters),
+      hr(),
+      h6("Turnout:"),
+      div(
+        tbody(
+          tr(
+            {class: "turnoutRow"},
+            td("Trillanes"),
+            barangayStats.turnout.trillanes
+          ),
+          tr(
+            {class: "turnoutRow"},
+            td("Malapitan"),
+            barangayStats.turnout.malapitan
+          ),
+          tr(
+            {class: "turnoutRow"},
+            td("Independents"),
+            barangayStats.turnout.independents
+          ),
+          tr(
+            {class: "turnoutRow"},
+            td("Abstained"),
+            barangayStats.turnout.abstained
+          ),
         )
       )
     )
   );
 };
+
+// tbody(
+//   [{ barangay_name: "139", registered_voters: 4556, party_color: "123" }].map(
+//     (c) => tr(
+//       {
+//         style: `/*--background: ${shade(
+//           c.party_color,
+//           0.731
+//         )};--width: 25%;*/--winnerPartyColor: ${c.party_color};`,
+//       },
+//       //td({ title: c.total_votes }, c.full_name),
+//       //td(c.total_votes)
+//       th({title: "Barangay" + c.barangay_name}, "Barangay " + c.barangay_name),
+//     )
+//   )
+// )
+
 
 document.getElementById("caloocan-map").addEventListener("load", function () {
   svgPanZoom("#caloocan-map", {
