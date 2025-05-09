@@ -15,49 +15,52 @@
   <body>
     <%- include('../partials/header'); %>
     <div class="encoderBody">
-      <%- include('../partials/no-precinct'); %>
-      <div class="tallies">
-        <div class="btn-group">
-          <button
-            class="btn btn-secondary btn-lg tallyHeader dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Precinct 0005A, District 1
-          </button>
-          <ul class="precinctsList dropdown-menu">
-            <% precincts.forEach(function(precinct) { %>
-            <li>
-              <button class="clusteredPrecinct dropdown-item btn-lg">
-                <%= precinct %>
-              </button>
-            </li>
-
-            <% }) %>
-          </ul>
-        </div>
-
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col">
-              <%- include('../partials/tally-card', { header: 'Mayor',
-              candidates: mayors }) %>
-            </div>
-            <div class="col">
-              <%- include('../partials/tally-card', { header: 'Vice-Mayor',
-              candidates: viceMayors }) %>
-            </div>
-            <div class="col">
-              <%- include('../partials/tally-card', { header: 'Congressman',
-              candidates: congressmen }) %>
-            </div>
-            <div class="col">
-              <%- include('../partials/tally-card', { header: 'Councilors',
-              candidates: councilors }) %>
+      <% if (precincts.length <= 0) { %>
+        <%- include('../partials/no-precinct'); %>
+      <% } else { %>
+        <div class="tallies">
+          <div class="btn-group">
+            <button
+              class="btn btn-secondary btn-lg tallyHeader dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Precinct 0005A, District 1
+            </button>
+            <ul class="precinctsList dropdown-menu">
+              <% precincts.forEach(function(precinct) { %>
+              <li>
+                <button class="clusteredPrecinct dropdown-item btn-lg">
+                  <%= precinct %>
+                </button>
+              </li>
+  
+              <% }) %>
+            </ul>
+          </div>
+  
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <%- include('../partials/tally-card', { header: 'Mayor',
+                candidates: mayors }) %>
+              </div>
+              <div class="col">
+                <%- include('../partials/tally-card', { header: 'Vice-Mayor',
+                candidates: viceMayors }) %>
+              </div>
+              <div class="col">
+                <%- include('../partials/tally-card', { header: 'Congressman',
+                candidates: congressmen }) %>
+              </div>
+              <div class="col">
+                <%- include('../partials/tally-card', { header: 'Councilors',
+                candidates: councilors }) %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% } %>
     </div>
     <span class="comelecDeclaration">Problem with the tallies? Call hotline: </span>
     <%- include('../partials/footer'); %>
