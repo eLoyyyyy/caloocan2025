@@ -148,7 +148,7 @@ body {
   padding: 10px;
   position: absolute;
   z-index: 1000;
-  width: 200px;
+  min-width: 200px;
 }
 
 .turnoutRow {

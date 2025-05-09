@@ -22,24 +22,19 @@ const Popover = () => {
       div(
         tbody(
           tr(
-            {class: "turnoutRow"},
-            td("Trillanes"),
+            td({class: "turnoutRow"}, "Trillanes"),
             barangayStats.turnout.trillanes
           ),
           tr(
-            {class: "turnoutRow"},
-            td("Malapitan"),
+            td({class: "turnoutRow"}, "Malapitan"),
             barangayStats.turnout.malapitan
           ),
           tr(
-            {class: "turnoutRow"},
-            td("Independents"),
+            td({class: "turnoutRow"}, "Independents"),
             barangayStats.turnout.independents
           ),
           tr(
-            {class: "turnoutRow"},
-            td("Abstained"),
-            barangayStats.turnout.abstained
+            td({class: "turnoutRow"}, "Abstained"),            barangayStats.turnout.abstained
           ),
         )
       )
