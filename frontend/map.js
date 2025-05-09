@@ -1,4 +1,4 @@
-const { div, p, h5, h6, hr} = van.tags;
+const { div, h5, h6, hr } = van.tags;
 
 const Popover = () => {
   const barangayStats = {
@@ -34,7 +34,8 @@ const Popover = () => {
             barangayStats.turnout.independents
           ),
           tr(
-            td({class: "turnoutRow"}, "Abstained"),            barangayStats.turnout.abstained
+            td({class: "turnoutRow"}, "Abstained"),
+            barangayStats.turnout.abstained
           ),
         )
       )
