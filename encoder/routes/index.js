@@ -39,10 +39,29 @@ router.get(
       },
     });
 
-    const {
-      data: { precincts },
-    } = await client.get(`/total/precincts`)
+    const clusters = await client.get(`/items/clusters`, {
+      params: {
+        fields: ['cluster_number']
+      }
+    })
     .catch(error => {
+      res.redirect('/login')
+    });
+
+    const precinctsData = await client.get('/items/precincts', {
+        params: {
+          filter: {
+            cluster_number: {
+              _in: clusters.data.data.map(d => d.cluster_number)
+            }
+          },
+          fields: [
+            'precinct_id'
+          ]
+        }
+    })
+    .catch(error => {
+      console.log(error.response)
       res.redirect('/login')
     });
 
@@ -54,7 +73,7 @@ router.get(
       res.redirect('/login')
     });
 
-    const candidateData = await client.get(`/items/PRECINCT_147A`, {
+    const candidateData = await client.get(`/items/ballot`, {
       params: {
         fields: [
           "id",
@@ -65,14 +84,21 @@ router.get(
           "candidate_id.party_id.party_color",
           "number_of_votes"
         ],
+        filter: {
+          precinct_id: {
+            '_eq': '0001A'
+          }
+        }
       },
     }).catch(error => {
       res.redirect('/login')
     });
 
+    console.log(precinctsData.data.data.map(d => d.precinct_id))
+
     res.render("sites/index", {
       user: userData.data.data,
-      precincts: precincts,
+      precincts: precinctsData.data.data.map(d => d.precinct_id),
       mayors: filter(candidateData.data.data, 'Mayor'),
       viceMayors: filter(candidateData.data.data, 'Vice Mayor'),
       councilors: filter(candidateData.data.data, 'Councilor'),

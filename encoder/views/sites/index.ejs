@@ -30,9 +30,13 @@
             <ul class="precinctsList dropdown-menu">
               <% precincts.forEach(function(precinct) { %>
               <li>
-                <button class="clusteredPrecinct dropdown-item btn-lg">
+                <a
+                  href="?precinct_id=<%= precinct %>"
+                  class="clusteredPrecinct dropdown-item btn-lg btn btn-info"
+                  role="button"
+                >
                   <%= precinct %>
-                </button>
+                </a>
               </li>
   
               <% }) %>
