@@ -38,7 +38,7 @@ const colorMap = van.state([
     color: "#377EB8",
   },
 ]);
-van.add(document.getElementById("asdasd"), Popover());
+van.add(document.getElementById("barangayStats"), Popover());
 
 const popover = document.querySelectorAll(".popover")[0];
 
