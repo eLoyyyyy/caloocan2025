@@ -14,16 +14,21 @@ router.post("/", async (req, res) => {
   const client = axios.create({
     baseURL: process.env.API_HOST,
   });
-  const { data } = await client.post(`/auth/login`, {
+  client.post(`/auth/login`, {
     email: req.body.email,
     password: req.body.password,
+  })
+  .then(response => {
+    res.cookie(COOKIE_NAME, response.data.data.access_token, {
+      maxAge: response.data.data.expires,
+      httpOnly: true,
+    });
+    res.redirect("/");
+  })
+  .catch(error => {
+    req.app.locals.message = error.response.data.errors[0].message;
+    res.redirect('/login')
   });
-
-  res.cookie(COOKIE_NAME, data.data.access_token, {
-    maxAge: data.data.expires,
-    httpOnly: true,
-  });
-  res.redirect("/");
 });
 
 export default router;
