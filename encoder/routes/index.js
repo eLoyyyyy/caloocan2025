@@ -73,6 +73,10 @@ router.get(
       res.redirect('/login')
     });
 
+    const precincts = precinctsData.data.data
+      .map(d => d.precinct_id)
+      .sort()
+
     const candidateData = await client.get(`/items/ballot`, {
       params: {
         fields: [
@@ -86,7 +90,7 @@ router.get(
         ],
         filter: {
           precinct_id: {
-            '_eq': '0001A'
+            '_eq': precincts[0]
           }
         }
       },
@@ -94,11 +98,11 @@ router.get(
       res.redirect('/login')
     });
 
-    console.log(precinctsData.data.data.map(d => d.precinct_id))
+    console.log(filter(candidateData.data.data, 'Vice Mayor'))
 
     res.render("sites/index", {
       user: userData.data.data,
-      precincts: precinctsData.data.data.map(d => d.precinct_id),
+      precincts: precincts,
       mayors: filter(candidateData.data.data, 'Mayor'),
       viceMayors: filter(candidateData.data.data, 'Vice Mayor'),
       councilors: filter(candidateData.data.data, 'Councilor'),

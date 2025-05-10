@@ -1,22 +1,25 @@
 <div class="card tallyCard">
   <div class="card-body">
-    <% if (candidates.map(c => c.votes).reduce((a, c) => a + c) < 1) { %></1>
-    <form action="/submit-votes" method="POST">
-    <% } %>
-      <h4 class="card-title"><%= header %></h4>
-      <div>
-        <% candidates.forEach(function(mayor) { %> <%-
-        include('../partials/candidate', { user: mayor }) %> <% }); %>
-      </div>
-      <% if (candidates.map(c => c.votes).reduce((a, c) => a + c) < 1) { %>
-        <input
-          type="submit"
-          class="submitTally btn btn-primary"
-          value="Submit Tally"
-        />
+    <% if (candidates.length > 0) { %>
+      <% if (candidates.map(c => c.votes).reduce((a, c) => a + c) < 1) { %></1>
+      <form action="/submit-votes" method="POST">
       <% } %>
-    <% if (candidates.map(c => c.votes).reduce((a, c) => a + c) < 1) { %></1>
-    </form>
+        <h4 class="card-title"><%= header %></h4>
+        <div>
+          <% candidates.forEach(function(mayor) { %>
+            <%- include('../partials/candidate', { user: mayor }) %>
+          <% }); %>
+        </div>
+        <% if (candidates.map(c => c.votes).reduce((a, c) => a + c) < 1) { %>
+          <input
+            type="submit"
+            class="submitTally btn btn-primary"
+            value="Submit Tally"
+          />
+        <% } %>
+      <% if (candidates.map(c => c.votes).reduce((a, c) => a + c) < 1) { %></1>
+      </form>
+      <% } %>
     <% } %>
   </div>
 </div>

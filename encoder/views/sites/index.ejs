@@ -25,10 +25,10 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Precinct 0005A, District 1
+              Precinct <%= precincts[0] %>
             </button>
             <ul class="precinctsList dropdown-menu">
-              <% precincts.forEach(function(precinct) { %>
+              <% precincts.slice(1, -1).forEach(function(precinct) { %>
               <li>
                 <a
                   href="?precinct_id=<%= precinct %>"
