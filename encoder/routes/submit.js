@@ -15,7 +15,7 @@ router.post(
 
     next();
   },
-  async (req, res, next) => {
+  (req, res, next) => {
     const cookie = req.cookies["directus_session_token"];
 
     const client = axios.create({
@@ -30,15 +30,14 @@ router.post(
       number_of_votes: Number(req.body[k]),
     }));
 
-    console.log(data);
-
-    const response = await client
-      .patch("/items/PRECINCT_147A", data)
+    client
+      .patch("/items/poll_watcher_report", data)
+      .then(() => {
+        res.redirect('back');
+      })
       .catch((error) => {
         res.redirect("/login");
       });
-    console.log({ data: response.data, status: response.status });
-    res.redirect(303, "/");
   }
 );
 

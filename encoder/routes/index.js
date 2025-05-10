@@ -5,18 +5,6 @@ import { CookieJar } from "tough-cookie";
 import { COOKIE_NAME } from '../constant.js'
 const router = express.Router();
 
-function filter(data, position) {
-  return data
-    .filter(d => d.candidate_id.position.position === position)
-    .map(d => ({
-      id: d.id,
-      name: d.candidate_id.surname,
-      party: d.candidate_id.party_id.party_acronym,
-      color: d.candidate_id.party_id.party_color,
-      votes: d.number_of_votes
-    }))
-}
-
 /* GET home page. */
 router.get(
   "/",
@@ -39,29 +27,12 @@ router.get(
       },
     });
 
-    const clusters = await client.get(`/items/clusters`, {
+    const clustersData = await client.get(`/items/clusters`, {
       params: {
         fields: ['cluster_number']
       }
     })
     .catch(error => {
-      res.redirect('/login')
-    });
-
-    const precinctsData = await client.get('/items/precincts', {
-        params: {
-          filter: {
-            cluster_number: {
-              _in: clusters.data.data.map(d => d.cluster_number)
-            }
-          },
-          fields: [
-            'precinct_id'
-          ]
-        }
-    })
-    .catch(error => {
-      console.log(error.response)
       res.redirect('/login')
     });
 
@@ -73,40 +44,11 @@ router.get(
       res.redirect('/login')
     });
 
-    const precincts = precinctsData.data.data
-      .map(d => d.precinct_id)
-      .sort()
-
-    const candidateData = await client.get(`/items/ballot`, {
-      params: {
-        fields: [
-          "id",
-          "candidate_id.surname",
-          "candidate_id.first_name",
-          "candidate_id.position.position",
-          "candidate_id.party_id.party_acronym",
-          "candidate_id.party_id.party_color",
-          "number_of_votes"
-        ],
-        filter: {
-          precinct_id: {
-            '_eq': precincts[0]
-          }
-        }
-      },
-    }).catch(error => {
-      res.redirect('/login')
-    });
-
-    console.log(filter(candidateData.data.data, 'Vice Mayor'))
+    const clusters = clustersData.data.data.map(d => d.cluster_number).sort();
 
     res.render("sites/index", {
       user: userData.data.data,
-      precincts: precincts,
-      mayors: filter(candidateData.data.data, 'Mayor'),
-      viceMayors: filter(candidateData.data.data, 'Vice Mayor'),
-      councilors: filter(candidateData.data.data, 'Councilor'),
-      congressmen: filter(candidateData.data.data, 'Congressman/Congresswoman')
+      clusters: clusters,
     });
   }
 );

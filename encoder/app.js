@@ -10,6 +10,7 @@ import indexRouter from "./routes/index.js";
 import loginRouter from "./routes/login.js";
 import submitVotesRouter from "./routes/submit.js";
 import logoutRouter from "./routes/logout.js";
+import clusterRouter from './routes/cluster.js';
 
 const app = express();
 
@@ -27,7 +28,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
-app.use('/submit-votes', submitVotesRouter)
+app.use('/submit-votes', submitVotesRouter);
+app.use('/cluster', clusterRouter);
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
