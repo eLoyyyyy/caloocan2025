@@ -59,6 +59,7 @@ fetch("http://localhost:8055/total").then(async (response) => {
   timeCheck()
   if (!response.ok) {
     console.error(`Response status: ${response.status}`);
+    return;
   }
 
   const json = await response.json();
@@ -71,7 +72,6 @@ fetch("http://localhost:8055/total").then(async (response) => {
   const d1Councilors = getTop6CouncilorPerDistrict(json, 1, "Councilor");
   const d2Councilors = getTop6CouncilorPerDistrict(json, 2, "Councilor");
   const d3Councilors = getTop6CouncilorPerDistrict(json, 3, "Councilor");
-  console.log(d1Councilors);
 
   const d1Congressman = getCongressmenPerDistrict(
     json,

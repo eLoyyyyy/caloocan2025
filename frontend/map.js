@@ -1,44 +1,11 @@
 const { div, h5, h6, hr } = van.tags;
 
 const Popover = () => {
-  const barangayStats = {
-    barangay_name: "139",
-    registered_voters: 4578,
-    winning_party_color: "#377EB8",
-    turnout: {
-      trillanes: 3562,
-      malapitan: 1873,
-      independents: 589,
-      abstained: 236
-    }
-  };
   return div(
     { class: "popover" },
     div(
-      h5({class: "popupH6"},"Barangay " + barangayStats.barangay_name),
-      p({class: "popupSubtext"}, "Registered voters: " + barangayStats.registered_voters),
-      hr({class: "popupline"}),
-      h6("Turnout:"),
-      div(
-        tbody(
-          tr( {class: "aksyon"},
-            td({class: "turnoutRow"}, "Trillanes"),
-            barangayStats.turnout.trillanes
-          ),
-          tr( {class: "nacionalista"},
-            td({class: "turnoutRow"}, "Malapitan"),
-            barangayStats.turnout.malapitan
-          ),
-          tr(
-            td({class: "turnoutRow"}, "Independents"),
-            barangayStats.turnout.independents
-          ),
-          tr(
-            td({class: "turnoutRow"}, "Abstained"),
-            barangayStats.turnout.abstained
-          ),
-        )
-      )
+      h5({class: "popupH6"},"Barangay ", barangayStats.barangay_name),
+      p({class: "popupSubtext"}, "Registered voters: ", barangayStats.registered_voters)
     )
   );
 };
@@ -60,7 +27,7 @@ const Popover = () => {
 // )
 
 
-document.getElementById("caloocan-map").addEventListener("load", function () {
+document.getElementById("caloocan-map").addEventListener("load", function (event) {
   svgPanZoom("#caloocan-map", {
     zoomEnabled: true,
     controlIconsEnabled: true,
@@ -69,14 +36,27 @@ document.getElementById("caloocan-map").addEventListener("load", function () {
     // viewportSelector: document.getElementById('demo-tiger').querySelector('#g4')
     // this option will make library to misbehave. Viewport should have no transform attribute
   });
+  fetch('http://localhost:8055/total/map-turnout')
+    .then(async response => {
+      if (!response.ok) {
+        console.error(`Response status: ${response.status}`);
+        return;
+      }
+
+      const json = await response.json();
+      const element = document.getElementById("caloocan-map");
+
+      for (const data of json) {
+        element.style.setProperty(`--${data.psgc}`, data.top_candidate_color);
+        popupDataMap.val[data.psgc] = data;
+      }
+
+      console.log(json);
+    })
 });
 
-const colorMap = van.state([
-  {
-    psgc: "1380100139",
-    color: "#377EB8",
-  },
-]);
+const popupDataMap = van.state({});
+const currentBrgy = van.state('');
 van.add(document.getElementById("barangayStats"), Popover());
 
 const popover = document.querySelectorAll(".popover")[0];
@@ -85,11 +65,13 @@ document.addEventListener("mousemove", fn, false);
 document.addEventListener("mouseout", function (event) {
   if (event.target.classList.contains("map-brgys")) {
     popover.style.display = "none";
+    currentBrgy.val = '';
   }
 });
 document.addEventListener("mouseenter", function (event) {
   if (event.target.classList.contains("map-brgys")) {
     popover.style.display = "block";
+    currentBrgy.val = event.target.id;
   }
 });
 
@@ -98,5 +80,6 @@ function fn(e) {
     popover.style.display = "block";
     popover.style.left = e.pageX + "px";
     popover.style.top = e.pageY + "px";
+    currentBrgy.val = e.target.id;
   }
 }
