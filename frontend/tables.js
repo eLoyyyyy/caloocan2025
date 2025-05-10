@@ -47,7 +47,7 @@ const Councilors = (top6Councilors) => {
               0.731
             )};--width: 25%;*/--winnerPartyColor: ${c.party_color};`,
           },
-          td({ title: c.total_votes }, c.full_name),
+          td({ title: c.total_votes }, c.surname, ', ', c.first_name),
           td(c.total_votes)
         )
       )
