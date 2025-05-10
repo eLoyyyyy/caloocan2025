@@ -1,2 +1,14 @@
-<h1 class="header">Welcome <%= user.first_name %>!</h1>
-<h2 class="subheader">Welcome to the #TeamTrillanes Quick Counting System!</h2>
+<header>
+    <div class="container hstack">
+        <div>
+            <h1 class="header">Welcome <%= user.first_name %>!</h1>
+            <h2 class="subheader">Welcome to the #TeamTrillanes Quick Counting System!</h2>
+        </div>
+        <ul class="nav ms-auto">
+            <li class="nav-item">
+                <a href="/logout" class="nav-link">Logout</a>
+            </li>
+        </ul>
+    </div>
+</header>
+

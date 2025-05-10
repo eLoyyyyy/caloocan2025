@@ -9,6 +9,7 @@ import { dirname } from "node:path";
 import indexRouter from "./routes/index.js";
 import loginRouter from "./routes/login.js";
 import submitVotesRouter from "./routes/submit.js";
+import logoutRouter from "./routes/logout.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/login", loginRouter);
+app.use("/logout", logoutRouter);
 app.use('/submit-votes', submitVotesRouter)
 app.use("/", indexRouter);
 
